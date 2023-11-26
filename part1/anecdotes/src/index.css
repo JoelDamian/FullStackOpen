@@ -12,17 +12,6 @@ code {
     monospace;
 }
 
-.anecdote-button {
-  border: 1px solid rgb(177, 173, 173);
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.anecdote-button:hover {
-  background-color: white; /* Change the background color on hover */
-}
-
 .container {
   margin: 8px
 }

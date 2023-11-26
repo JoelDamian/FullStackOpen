@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import './index.css';
+import Actions from './actions/Actions'
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(new Uint8Array(6));
 
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
@@ -11,11 +12,19 @@ const App = (props) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  const handleClick = () => setSelected(getRandomInt(0, anecdotes.length - 1))
+  const handleClickRandom = () => setSelected(getRandomInt(0, anecdotes.length - 1));
+
+  const handleClickVote = () => {
+    const copy = [...votes];
+    copy[selected] += 1;
+    setVotes(copy);
+  }
+
   return (
     <div className='container'>
       <p>{props.anecdotes[selected]}</p>
-      <button onClick={handleClick} className='anecdote-button '>next anecdote</button>
+      <p>has {votes[selected]} votes</p>
+      <Actions handleClickRandom={handleClickRandom} handleClickVote={handleClickVote}/>
     </div>
   )
 }
