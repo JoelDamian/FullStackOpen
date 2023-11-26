@@ -1,0 +1,10 @@
+sequence diagram
+    Participant Client
+    Participant Server
+
+    Client ->> Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa - payload: { "content": "test", "date": "2023-11-26T06:45:02.631Z" }
+    activate Server
+    Server -->> Client: status: 200 OK - response: { message: "note created" }
+    desactivate Server
+
+    Note right of Client: The Client executes the callback function that renders the notes

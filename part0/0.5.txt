@@ -1,0 +1,428 @@
+sequence diagram
+    Participant Client
+    Participant Server
+
+    Client ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate Server
+    Server -->> Client: HTML document
+    desactivate Server
+
+    Client ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server -->> Client: the css file
+    desactivate Server
+
+    Client ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate Server
+    Server -->> Client: the JavaScript file
+    desactivate Server
+
+    Note right of Client: The Client starts executing the JavaScript code that fetches the JSON from the server
+
+    Client ->> Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server -->> Client: [
+        {
+            "content": "",
+            "date": "2023-11-25T05:44:17.925Z"
+        },
+        {
+            "content": "gjhj",
+            "date": "2023-11-25T05:49:16.539Z"
+        },
+        {
+            "content": "buguhg",
+            "date": "2023-11-25T05:51:50.675Z"
+        },
+        {
+            "content": "dfhgjksdhf",
+            "date": "2023-11-25T05:52:00.379Z"
+        },
+        {
+            "content": "hire",
+            "date": "2023-11-25T05:53:52.475Z"
+        },
+        {
+            "content": "assa",
+            "date": "2023-11-25T05:54:10.680Z"
+        },
+        {
+            "content": "bob",
+            "date": "2023-11-25T05:55:57.796Z"
+        },
+        {
+            "content": "dsfaadf",
+            "date": "2023-11-25T05:56:04.790Z"
+        },
+        {
+            "content": "ang pogi ko",
+            "date": "2023-11-25T06:06:53.400Z"
+        },
+        {
+            "content": "Saludos desde Costa Rica ",
+            "date": "2023-11-25T06:09:32.672Z"
+        },
+        {
+            "content": "test 2525",
+            "date": "2023-11-25T06:37:29.349Z"
+        },
+        {
+            "content": "test",
+            "date": "2023-11-25T06:47:24.775Z"
+        },
+        {
+            "content": "test2",
+            "date": "2023-11-25T06:52:18.721Z"
+        },
+        {
+            "content": "test3",
+            "date": "2023-11-25T07:02:03.662Z"
+        },
+        {
+            "content": "TF is this?",
+            "date": "2023-11-25T07:08:13.353Z"
+        },
+        {
+            "content": "hello ",
+            "date": "2023-11-25T07:14:48.191Z"
+        },
+        {
+            "content": "new notes",
+            "date": "2023-11-25T07:26:02.089Z"
+        },
+        {
+            "content": "Déu vos guard",
+            "date": "2023-11-25T07:34:30.761Z"
+        },
+        {
+            "content": "Lambano",
+            "date": "2023-11-25T07:35:38.000Z"
+        },
+        {
+            "content": "english noets",
+            "date": "2023-11-25T07:39:56.520Z"
+        },
+        {
+            "content": "more",
+            "date": "2023-11-25T07:40:57.164Z"
+        },
+        {
+            "content": "Lambano",
+            "date": "2023-11-25T07:48:51.845Z"
+        },
+        {
+            "content": "SPA",
+            "date": "2023-11-25T07:53:16.153Z"
+        },
+        {
+            "content": "Lambano",
+            "date": "2023-11-25T07:53:24.274Z"
+        },
+        {
+            "content": "winner",
+            "date": "2023-11-25T07:59:06.682Z"
+        },
+        {
+            "content": "FullStacko",
+            "date": "2023-11-25T07:59:42.194Z"
+        },
+        {
+            "content": "Déu vos guard",
+            "date": "2023-11-25T08:01:44.482Z"
+        },
+        {
+            "content": "test",
+            "date": "2023-11-25T08:01:47.153Z"
+        },
+        {
+            "content": "well",
+            "date": "2023-11-25T08:03:59.668Z"
+        },
+        {
+            "content": "new note",
+            "date": "2023-11-25T08:04:23.797Z"
+        },
+        {
+            "content": "test2",
+            "date": "2023-11-25T08:06:36.558Z"
+        },
+        {
+            "content": "test3",
+            "date": "2023-11-25T08:07:14.757Z"
+        },
+        {
+            "content": "2023-11-25",
+            "date": "2023-11-25T08:19:28.379Z"
+        },
+        {
+            "content": "!@",
+            "date": "2023-11-25T08:20:10.052Z"
+        },
+        {
+            "content": "whatsup ",
+            "date": "2023-11-25T08:49:00.834Z"
+        },
+        {
+            "content": "hello",
+            "date": "2023-11-25T08:49:56.582Z"
+        },
+        {
+            "content": "hello",
+            "date": "2023-11-25T08:50:34.569Z"
+        },
+        {
+            "content": "whatsuop",
+            "date": "2023-11-25T08:50:46.497Z"
+        },
+        {
+            "content": "hello",
+            "date": "2023-11-25T08:50:55.174Z"
+        },
+        {
+            "content": "I love this course",
+            "date": "2023-11-25T08:55:34.115Z"
+        },
+        {
+            "content": "哈楼",
+            "date": "2023-11-25T09:23:00.873Z"
+        },
+        {
+            "content": "Hello",
+            "date": "2023-11-25T09:34:16.806Z"
+        },
+        {
+            "content": "Test1",
+            "date": "2023-11-25T09:41:59.690Z"
+        },
+        {
+            "content": "I need more bullets ",
+            "date": "2023-11-25T09:42:51.115Z"
+        },
+        {
+            "content": "HPMOR",
+            "date": "2023-11-25T09:47:39.019Z"
+        },
+        {
+            "content": "Hello",
+            "date": "2023-11-25T09:47:44.612Z"
+        },
+        {
+            "content": "KK",
+            "date": "2023-11-25T09:54:47.348Z"
+        },
+        {
+            "content": "note",
+            "date": "2023-11-25T09:56:02.093Z"
+        },
+        {
+            "content": "test again",
+            "date": "2023-11-25T10:08:53.288Z"
+        },
+        {
+            "content": "test",
+            "date": "2023-11-25T10:10:43.123Z"
+        },
+        {
+            "content": "kl",
+            "date": "2023-11-25T11:02:40.820Z"
+        },
+        {
+            "content": "testnotelombardi",
+            "date": "2023-11-25T11:09:15.142Z"
+        },
+        {
+            "content": "Test123",
+            "date": "2023-11-25T11:16:45.620Z"
+        },
+        {
+            "content": "testts",
+            "date": "2023-11-25T11:18:14.487Z"
+        },
+        {
+            "content": ".",
+            "date": "2023-11-25T11:23:12.822Z"
+        },
+        {
+            "content": "This is new test note",
+            "date": "2023-11-25T11:24:01.324Z"
+        },
+        {
+            "content": "",
+            "date": "2023-11-25T11:27:11.737Z"
+        },
+        {
+            "content": "f",
+            "date": "2023-11-25T11:30:44.448Z"
+        },
+        {
+            "content": "fx2",
+            "date": "2023-11-25T11:31:11.214Z"
+        },
+        {
+            "content": "fx3",
+            "date": "2023-11-25T11:31:29.658Z"
+        },
+        {
+            "content": "fx4",
+            "date": "2023-11-25T11:31:48.365Z"
+        },
+        {
+            "content": "Hola",
+            "date": "2023-11-25T11:37:40.131Z"
+        },
+        {
+            "content": "Otra nota",
+            "date": "2023-11-25T11:42:27.026Z"
+        },
+        {
+            "content": "New note",
+            "date": "2023-11-25T11:43:23.416Z"
+        },
+        {
+            "content": "New note 2",
+            "date": "2023-11-25T11:43:42.670Z"
+        },
+        {
+            "content": "new",
+            "date": "2023-11-25T11:58:42.476Z"
+        },
+        {
+            "content": "note",
+            "date": "2023-11-25T12:03:28.059Z"
+        },
+        {
+            "content": "spotify",
+            "date": "2023-11-25T12:06:34.677Z"
+        },
+        {
+            "content": "ni e",
+            "date": "2023-11-25T12:06:41.420Z"
+        },
+        {
+            "content": "spotify",
+            "date": "2023-11-25T12:06:57.382Z"
+        },
+        {
+            "content": "nooo",
+            "date": "2023-11-25T12:11:44.305Z"
+        },
+        {
+            "content": "@¿@",
+            "date": "2023-11-25T12:30:38.815Z"
+        },
+        {
+            "content": "test",
+            "date": "2023-11-25T12:32:22.278Z"
+        },
+        {
+            "content": "testt",
+            "date": "2023-11-25T12:32:27.353Z"
+        },
+        {
+            "content": "hello world",
+            "date": "2023-11-25T12:36:25.178Z"
+        },
+        {
+            "content": "",
+            "date": "2023-11-25T13:03:52.210Z"
+        },
+        {
+            "content": "hejka",
+            "date": "2023-11-25T14:40:46.121Z"
+        },
+        {
+            "content": "is this work?",
+            "date": "2023-11-25T13:50:05.290Z"
+        },
+        {
+            "content": "",
+            "date": "2023-11-25T13:54:34.208Z"
+        },
+        {
+            "content": "",
+            "date": "2023-11-25T13:54:40.105Z"
+        },
+        {
+            "content": "Déu vos guard",
+            "date": "2023-11-25T13:58:11.903Z"
+        },
+        {
+            "content": "",
+            "date": "2023-11-25T13:58:20.629Z"
+        },
+        {
+            "content": "Déu vos guard",
+            "date": "2023-11-25T14:00:15.641Z"
+        },
+        {
+            "content": "holaaa",
+            "date": "2023-11-25T14:03:49.760Z"
+        },
+        {
+            "content": "n1",
+            "date": "2023-11-25T14:06:06.394Z"
+        },
+        {
+            "content": "n2",
+            "date": "2023-11-25T14:09:20.802Z"
+        },
+        {
+            "content": "pa amb tomàquet",
+            "date": "2023-11-25T14:09:42.461Z"
+        },
+        {
+            "content": "kfcvme50",
+            "date": "2023-11-25T14:20:55.981Z"
+        },
+        {
+            "content": "pa amb tomàquet",
+            "date": "2023-11-25T14:21:40.909Z"
+        },
+        {
+            "content": "pa amb tomàquet",
+            "date": "2023-11-25T14:21:46.877Z"
+        },
+        {
+            "content": "example",
+            "date": "2023-11-25T14:27:23.837Z"
+        },
+        {
+            "content": "Déu vos guard",
+            "date": "2023-11-25T14:31:40.241Z"
+        },
+        {
+            "content": "test",
+            "date": "2023-11-25T14:46:00.059Z"
+        },
+        {
+            "content": "kfcvme50again",
+            "date": "2023-11-25T14:47:16.553Z"
+        },
+        {
+            "content": "test2",
+            "date": "2023-11-25T14:55:24.659Z"
+        },
+        {
+            "content": "23",
+            "date": "2023-11-25T15:01:31.787Z"
+        },
+        {
+            "content": "testing",
+            "date": "2023-11-25T15:02:18.091Z"
+        },
+        {
+            "content": "hola",
+            "date": "2023-11-25T15:04:30.198Z"
+        },
+        {
+            "content": "hoo",
+            "date": "2023-11-25T15:04:41.893Z"
+        },
+        {
+            "content": "x",
+            "date": "2023-11-25T15:06:29.046Z"
+        }
+    ]
+    desactivate Server
+
+    Note right of Client: The Client executes the callback function that renders the notes
