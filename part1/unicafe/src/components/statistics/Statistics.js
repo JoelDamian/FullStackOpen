@@ -11,17 +11,21 @@ const Statistics = ({ good, neutral, bad }) => {
     const totalScore = good - bad;
     return getAll() === 0 ? 0 : (totalScore / getAll());
   };
-  return (
-    <div>
-      <Title text={'statistics'} />
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {getAll()}</p>
-      <p>average {average()}</p>
-      <p>positive {positivePercentage()}%</p>
-    </div>
-  );
+
+  if(getAll() !== 0){
+    return (
+        <div>
+          <p>good {good}</p>
+          <p>neutral {neutral}</p>
+          <p>bad {bad}</p>
+          <p>all {getAll()}</p>
+          <p>average {average()}</p>
+          <p>positive {positivePercentage()}%</p>
+        </div>
+      );
+  }
+
+  return <p>No feedback given</p>
 };
 
 export default Statistics;

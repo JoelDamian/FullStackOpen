@@ -29,6 +29,7 @@ const App = () => {
     <div>
       <Title text={'give feedback'} />
       <Action actions={actions} good={good} neutral={neutral} bad={bad} />
+      <Title text={'statistics'} />
       <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
   );
