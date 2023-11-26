@@ -14,7 +14,7 @@ const Statistics = ({ good, neutral, bad }) => {
 
   if (getAll() !== 0) {
     return (
-      <div>
+      <table>
         <StatisticLine text='good' value={good} />
         <StatisticLine text='neutral' value={neutral} />
         <StatisticLine text='bad' value={bad} />
@@ -24,7 +24,7 @@ const Statistics = ({ good, neutral, bad }) => {
           text='positive'
           value={positivePercentage().toString() + '%'}
         />
-      </div>
+      </table>
     );
   }
 
