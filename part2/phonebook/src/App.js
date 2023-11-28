@@ -3,7 +3,7 @@ import './App.css';
 import Filter from './components/filter/Filter';
 import PersonForm from './components/person-form/PersonForm';
 import Persons from './components/persons/Persons';
-import axios from 'axios';
+import noteService from './components/services/services';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -11,17 +11,17 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
 
-  const initialize = () => {
-    axios
-    .get('http://localhost:3001/persons')
-    .then(response => {
-      console.log('promise fulfilled')
-      setPersons(response.data)
-    })
-    .catch(error => console.error(error))
-  }
-
-  useEffect(initialize, []);
+  useEffect(() => {
+    const initialize = async () => {
+      noteService
+        .getAllNotes()
+        .then((response) => {
+          setPersons(response);
+        })
+        .catch((error) => console.error(error));
+    };
+    initialize();
+  }, []);
 
   const handleNoteChange = (event) => {
     setNewName(event.target.value);
@@ -41,8 +41,16 @@ const App = () => {
     if (isStringFound) {
       alert(`${newName} is already added to phonebook`);
     } else {
-      const newContact = { name: newName, number: newNumber };
-      setPersons(persons.concat(newContact));
+      const newContact = {
+        name: newName,
+        number: newNumber
+      };
+      noteService
+        .createNotes(newContact)
+        .then((response) => {
+          setPersons(persons.concat(response));
+        })
+        .catch((error) => console.error(error));
     }
   };
 
