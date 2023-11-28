@@ -39,7 +39,28 @@ const App = () => {
     event.preventDefault();
     const isStringFound = persons.some((obj) => obj.name === newName);
     if (isStringFound) {
-      alert(`${newName} is already added to phonebook`);
+      const result = window.confirm(
+        `${newName} is already added to phonebook, replace the old number with the new one?`
+      );
+      if (result) {
+        const foundPerson = persons.find(
+          (person) => person.name.toLowerCase() === newName.toLowerCase()
+        );
+        const newContact = {
+          id: foundPerson.id,
+          name: foundPerson.name,
+          number: newNumber,
+        };
+        noteService
+          .updateNotes(foundPerson.id, newContact)
+          .then((response) => {
+            const newList = persons.map((person) =>
+              person.id === foundPerson.id ? { ...person, ...response } : person
+            );
+            setPersons(newList);
+          })
+          .catch((error) => console.error(error));
+      }
     } else {
       const newContact = {
         name: newName,
