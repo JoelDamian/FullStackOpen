@@ -43,12 +43,25 @@ const App = () => {
     } else {
       const newContact = {
         name: newName,
-        number: newNumber
+        number: newNumber,
       };
       noteService
         .createNotes(newContact)
         .then((response) => {
           setPersons(persons.concat(response));
+        })
+        .catch((error) => console.error(error));
+    }
+  };
+
+  const handleDeleteNumber = (person) => {
+    const result = window.confirm(`Delete ${person.name}?`);
+    if (result) {
+      noteService
+        .deleteNotes(person.id)
+        .then((response) => {
+          let newList = persons.filter((element) => element.id !== person.id);
+          setPersons(newList);
         })
         .catch((error) => console.error(error));
     }
@@ -67,7 +80,11 @@ const App = () => {
         handleNumberChange={handleNumberChange}
       />
       <h3>Numbers</h3>
-      <Persons persons={persons} filter={filter} />
+      <Persons
+        persons={persons}
+        filter={filter}
+        handleDeleteNumber={handleDeleteNumber}
+      />
     </div>
   );
 };
