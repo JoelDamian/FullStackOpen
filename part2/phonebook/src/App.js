@@ -4,12 +4,15 @@ import Filter from './components/filter/Filter';
 import PersonForm from './components/person-form/PersonForm';
 import Persons from './components/persons/Persons';
 import noteService from './components/services/services';
+import Notification from './components/notification/Notification';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filter, setFilter] = useState('');
+  const [sucessMesasge, setSuccessMessage] = useState(null);
+  const [notificationColor, setNotificationColor] = useState('');
 
   useEffect(() => {
     const initialize = async () => {
@@ -18,7 +21,9 @@ const App = () => {
         .then((response) => {
           setPersons(response);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+        });
     };
     initialize();
   }, []);
@@ -58,8 +63,15 @@ const App = () => {
               person.id === foundPerson.id ? { ...person, ...response } : person
             );
             setPersons(newList);
+            setNotificationColor('green')
+            setSuccessMessage(`Updated ${foundPerson.name}`);
+            setTimeout(() => {
+              setSuccessMessage(null);
+            }, 5000);
           })
-          .catch((error) => console.error(error));
+          .catch((error) => {
+            console.error(error);
+          });
       }
     } else {
       const newContact = {
@@ -70,8 +82,17 @@ const App = () => {
         .createNotes(newContact)
         .then((response) => {
           setPersons(persons.concat(response));
+          setNotificationColor('green')
+          setSuccessMessage(
+            `Added ${newName}`
+          )
+          setTimeout(() => {
+            setSuccessMessage(null)
+          }, 5000)
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
@@ -91,6 +112,7 @@ const App = () => {
   return (
     <div className='container'>
       <h2>Phonebook</h2>
+      <Notification message={sucessMesasge} color={notificationColor}/>
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm
