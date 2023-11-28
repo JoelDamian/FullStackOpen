@@ -63,7 +63,7 @@ const App = () => {
               person.id === foundPerson.id ? { ...person, ...response } : person
             );
             setPersons(newList);
-            setNotificationColor('green')
+            setNotificationColor('green');
             setSuccessMessage(`Updated ${foundPerson.name}`);
             setTimeout(() => {
               setSuccessMessage(null);
@@ -71,6 +71,13 @@ const App = () => {
           })
           .catch((error) => {
             console.error(error);
+            setNotificationColor('red')
+            setSuccessMessage(
+              `Error updating ${newName}.`
+            )
+            setTimeout(() => {
+              setSuccessMessage(null)
+            }, 5000)
           });
       }
     } else {
@@ -82,16 +89,21 @@ const App = () => {
         .createNotes(newContact)
         .then((response) => {
           setPersons(persons.concat(response));
-          setNotificationColor('green')
+          setNotificationColor('green');
+          setSuccessMessage(`Added ${newName}`);
+          setTimeout(() => {
+            setSuccessMessage(null);
+          }, 5000);
+        })
+        .catch((error) => {
+          console.error(error);
+          setNotificationColor('red')
           setSuccessMessage(
-            `Added ${newName}`
+            `Error adding ${newName}.`
           )
           setTimeout(() => {
             setSuccessMessage(null)
           }, 5000)
-        })
-        .catch((error) => {
-          console.error(error);
         });
     }
   };
@@ -105,14 +117,23 @@ const App = () => {
           let newList = persons.filter((element) => element.id !== person.id);
           setPersons(newList);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+          setNotificationColor('red')
+          setSuccessMessage(
+            `Information of ${newName} has already been removed from server`
+          )
+          setTimeout(() => {
+            setSuccessMessage(null)
+          }, 5000)
+        });
     }
   };
 
   return (
     <div className='container'>
       <h2>Phonebook</h2>
-      <Notification message={sucessMesasge} color={notificationColor}/>
+      <Notification message={sucessMesasge} color={notificationColor} />
       <Filter filter={filter} handleFilterChange={handleFilterChange} />
       <h3>add a new</h3>
       <PersonForm
